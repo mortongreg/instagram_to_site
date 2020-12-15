@@ -1,0 +1,54 @@
+﻿body {
+    font-family: Arial;
+    color: white;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    left: 0;
+    background-color: #111;
+}
+
+.right {
+    right: 0;
+    background-color: red;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.centered img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.unselected {
+    border: solid 1px black;
+    margin: 10px;
+    box-shadow: 0px 12px 22px 1px #333;
+}
+
+.selected {
+    border: solid 1px red;
+    margin: 10px;
+    box-shadow: 0px 12px 22px 1px #333;
+}
+
+.border-button:hover {
+    background-color: red;
+    opacity: 0.5;
+}

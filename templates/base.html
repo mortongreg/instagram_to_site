@@ -1,0 +1,250 @@
+{% extends"bootstrap/base.html" %}
+
+
+
+
+<!doctype html>
+<html>
+
+<head>
+    {% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link id="site_style" rel="stylesheet" href={{ site_style }}>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='functions.js') }}"></script>
+
+
+    <title>{% block title %}{% endblock %} {{ g.navbar }}</title>
+
+
+    <style>
+        @media only screen and (max-width: 1026px) { 
+        .hide-on-sm {
+            display: none;
+        } 
+        }
+    </style>
+
+    {% endblock %}
+</head>
+
+<body>
+
+    {% block content %} {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+
+
+
+
+    <nav class="navbar">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="color:#36A0D6" href="#">GMs Site Creater</a>
+        </div>
+        <ul class="nav navbar-nav" style="display:inline;">
+            <li style="display:inline;"> <label style="background-color:#36A0D6; border-color:#36A0D6; color:#fff">Set CSS:</label> </li>
+            <li style="display:inline;">
+                <select class="design_select" onchange="changeCSS(this.options[this.selectedIndex].value)" id="mySelect">
+                    <option class="design_option" value="darkly.css">Darkly</option>
+                    <option class="design_option" value="cyborg.css">Cyborg</option>
+                    <option class="design_option" value="superhero.css">Superhero</option>
+                </select>
+            </li>
+            <li style="display:inline;">
+                <a id="set_favicon" data-target="#imageSelectionModal" class="btn btn-primary" style="background-color:#36A0D6;border-color:#36A0D6; color:#fff" > Set Favicon </a>
+            </li>
+            <li style="display:inline;">
+                <button class="btn btn-primary"  style="background-color:#36A0D6;border-color:#36A0D6; color:#fff"  type="button" onclick="window.location.href='{{ url_for( 'clear') }}';">Reset</button>
+
+            </li>
+            <li style="display:inline;">
+                <button class="btn btn-primary"  style="background-color:#36A0D6; border-color:#36A0D6; color:#fff"  type="button" onclick="window.location.href='{{ url_for( 'logout') }}';">Logout</button>
+
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+
+        <div id="content">
+
+
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand border-button" navbar-editable href="#">{{ g.navbar }}</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </nav>
+
+   <!-- Image Selector Modal -->
+   <div class="modal fade" id="imageSelectionModal" tabindex="-1" role="dialog" aria-labelledby="imageSelectionModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-scrollable " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageSelectionModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body" >
+                    {% for image in images %}
+                    <div class="col">
+                        <img class="w-100 unselected" src={{ image }} alt="">
+                    </div>
+
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="save_selection">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+            <script type="text/javascript">
+                function changeCSS(cssFile) {
+
+                    var oldlink = document.getElementById("site_style");
+
+                    var newlink = document.createElement("link");
+                    newlink.setAttribute("id","site_style");
+                    newlink.setAttribute("rel","stylesheet");
+                    newlink.setAttribute("type","text/css");
+                    newlink.setAttribute("href","static/" + cssFile);
+
+                    document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/change_style",
+                        data: {
+                            cssFile: cssFile,
+                        }
+                    });
+                }
+
+
+                function setStyleSource(linkID, sourceLoc) {
+                    var theLink = document.getElementById(linkID);
+                    theLink.href = sourceLoc;
+                    console.log(theLink.href);
+                }
+
+                document.getElementById("mySelect").addEventListener("change", function() {
+                    var selected = this.options[this.selectedIndex].value;
+                    setStyleSource("s1 ", selected)
+                });
+
+
+                function save() {
+                    localStorage.setItem("html ", document.body.outerHTML)
+                    download(document.body.outerHTML, 'myfilename.txt', 'text/plain')
+
+                    alert(localStorage.getItem("html "))
+                }
+
+                function set() {
+                    let content = localStorage.getItem("html ")
+                    if (content) {
+                        document.body.innerHTML = content
+                    }
+                }
+                // Make the DIV element draggable:
+                dragElement(document.getElementById("mydiv "));
+
+                function dragElement(elmnt) {
+                    var pos1 = 0,
+                        pos2 = 0,
+                        pos3 = 0,
+                        pos4 = 0;
+                    if (document.getElementById(elmnt.id + "header ")) {
+                        // if present, the header is where you move the DIV from:
+                        document.getElementById(elmnt.id + "header ").onmousedown = dragMouseDown;
+                    } else {
+                        // otherwise, move the DIV from anywhere inside the DIV:
+                        elmnt.onmousedown = dragMouseDown;
+                    }
+
+                    function dragMouseDown(e) {
+                        e = e || window.event;
+                        e.preventDefault();
+                        // get the mouse cursor position at startup:
+                        pos3 = e.clientX;
+                        pos4 = e.clientY;
+                        document.onmouseup = closeDragElement;
+                        // call a function whenever the cursor moves:
+                        document.onmousemove = elementDrag;
+                    }
+
+                    function elementDrag(e) {tle
+                        e = e || window.event;
+                        e.preventDefault();
+                        // calculate the new cursor position:
+                        pos1 = pos3 - e.clientX;
+                        pos2 = pos4 - e.clientY;
+                        pos3 = e.clientX;
+                        pos4 = e.clientY;
+                        // set the element's new position:
+                        elmnt.style.top = (elmnt.offsetTop - pos2) +"px";
+                        elmnt.style.left = (elmnt.offsetLeft - pos1) +"px";
+                    }
+
+                    function closeDragElement() {
+                        // stop moving when mouse button is released:
+                        document.onmouseup = null;
+                        document.onmousemove = null;
+                    }
+                }
+            </script>
+
+
+
+        </div>
+        {% endblock %}
+        <div id="footer">
+            {% block footer %} &copy; Copyright 2010 by <a href="http://domain.invalid/">you</a>. {% endblock %}
+        </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+{% extends"bootstrap/base.html" %}
+
+
+
+
+<!doctype html>
+<html>
+
+<head>
+    {% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
+
+    <link id="site_style" rel="stylesheet" href={{ site_style }}>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="icon" type="image/ico" href="favicon.ico" />
+
+
+    <title>{% block title %}{% endblock %} {{ g.navbar }}</title>
+
+
+    <style>
+        @media only screen and (max-width: 1026px) { 
+        .hide-on-sm {
+            display: none;
+        } 
+        }
+    </style>
+
+
+    {% endblock %}
+</head>
+
+<body>
+    {% block content %} 
+
+
+    <div class="container-fluid">
+
+        <div id="content">
+
+
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand border-button" navbar-editable href="start.html">{{ g.navbar }}</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="start.html">Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </nav>
+
+
+        </div>
+        {% endblock %}
+        <div id="footer">
+            {% block footer %} Site Design by @<a href="http://domain.invalid/">gmorton</a>. {% endblock %}
+        </div>
+
+
+
+</body>
+
+</html>

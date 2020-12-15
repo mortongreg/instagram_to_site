@@ -1,0 +1,73 @@
+{% extends "file_base.html" %} {% block title %} - Services{% endblock %} {% block head %} {{ super() }} {% endblock %} {% block content %} {{ super() }}
+
+<div class="container-fluid" style="width:100%;padding-left:0px;padding-right:0px">
+
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        {{ text_data[0]|safe }} {{ text_data[1]|safe }}
+
+    </div>
+
+    <div class="container">
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    {{ text_data[2]|safe }}
+                </div>
+                <div class="card-body">
+                    {{ text_data[3]|safe }}
+                    <ul class="list-unstyled mt-3 mb-4">
+                        {{ text_data[4]|safe }}
+                        {{ text_data[5]|safe }} 
+                        {{ text_data[6]|safe }} 
+                        {{ text_data[7]|safe }}
+
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    {{ text_data[8]|safe }}
+
+                </div>
+                <div class="card-body">
+                    {{ text_data[9]|safe }} 
+                    {{ text_data[10]|safe }}
+                    <ul class="list-unstyled mt-3 mb-4">
+                        {{ text_data[11]|safe }}
+                        {{ text_data[12]|safe }}
+                        {{ text_data[13]|safe }}
+                    {{ text_data[14]|safe }}
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    {{ text_data[15]|safe }}
+                </div>
+                <div class="card-body">
+                    {{ text_data[16]|safe }}
+                    <ul class="list-unstyled mt-3 mb-4">
+                        {{ text_data[17]|safe }} 
+                        {{ text_data[18]|safe }} 
+                        {{ text_data[19]|safe }} 
+                        {{ text_data[20]|safe }}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center">
+            <a href="start.html#contact_us" class="btn btn-lg btn-block btn-primary">Contact us</a>
+        </div>
+
+    </div>
+
+
+</div>
+</div>
+
+
+
+
+{% endblock %}

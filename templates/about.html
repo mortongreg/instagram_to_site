@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %}About{% endblock %} {% block head %} {{ super() }} {% endblock %} {% block content %} {{ super() }}
+<div class="container-fluid" style="width:100%;padding-left:0px;padding-right:0px">
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        {{ text_data[0]|safe }} {{ text_data[1]|safe }}
+
+    </div>
+
+</div>
+</div>
+
+<div class="modal-footer design_footer">
+    <a class="design_btn-primary design_btn-lg " id="about" onclick="downloadData(id,'start')" href="# " role="button ">Previous</a>
+    <a class="design_btn-primary design_btn-lg " id="about" onclick="downloadData(id,'services')" href="# " role="button ">Next</a>
+</div>
+
+{% endblock %}

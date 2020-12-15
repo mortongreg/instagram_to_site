@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}Welcome{% endblock %} {% block head %} {{ super() }} {% endblock %} {% block content %} {% with messages = get_flashed_messages() %} {% if messages %}
+<ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %} {% endwith %}
+
+<body class="text-center">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <h3 class="masthead-brand">GM's Rapid Site Generator</h3>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <p class="lead"> Rapidly generate a site for your service based business using your already existing instagram content!</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="https://api.instagram.com/oauth/authorize?client_id=737101987128986&redirect_uri=https://gregstestapp.com/authorize&scope=user_profile,user_media&response_type=code" role="button">Try Now!</a>
+            </p>
+        </main>
+
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+                GM's Rapid Site Generator</a>, by <a href="https://twitter.com/mdo">@gmorton</a>.</p>
+            </div>
+        </footer>
+    </div>
+
+
+
+</body>
+
+
+
+{% endblock %}

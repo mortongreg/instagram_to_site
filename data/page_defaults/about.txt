@@ -1,0 +1,2 @@
+<h1 data-editable class="border-button display-4">About</h1>
+<p data-editable class="border-button lead">We work so hard for your satisfaction</p>

@@ -1,0 +1,12 @@
+<div image-editable style="width:100%;margin:auto;background-repeat:no-repeat; background-size:cover;height:0;padding-top: 43.64%; background-image:url("");" id="first_section" class="border-button row">
+<h1 class='border-button hide-on-sm' data-editable id=1>Header 1</h1>
+<h2 class='border-button hide-on-sm' data-editable id=2>Header 2</h2>
+<p class='border-button' data-editable id=3>Just some sample text</p>
+<h1 class='border-button' data-editable id=4>Another Header</h1>
+<h2 style=\"text-decoration: underline;\" class='border-button' data-editable id=5>Yet Another Header </h2>
+<div  image-editable id="second_section" class="col border-button" style="background-repeat:no-repeat; background-size:cover;padding-top: 43.64%;background-image:url("");" class="border-button"></div>
+<div class="col-md-7 col-sm-8" image-editable id="third_section" style=""></div>
+<img class="w-100 border-button" image-editable src="https://placehold.it/800x600?text=." data-target="#carouselExample" data-slide-to="0" id="fourth_section">
+<img class="w-100 border-button" image-editable src="https://placehold.it/800x600?text=." data-target="#carouselExample" data-slide-to="1" id="fifth_section">
+<img class="w-100 border-button" image-editable src="https://placehold.it/800x600?text=." data-target="#carouselExample" data-slide-to="2" id="sixth_section">
+<img class="w-100 border-button" image-editable src="https://placehold.it/800x600?text=." data-target="#carouselExample" data-slide-to="3" id="seventh_section">
