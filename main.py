@@ -24,7 +24,6 @@ import re
 import zipfile
 import shutil
 import instagram
-
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 app.config.from_object(Config)
@@ -34,7 +33,7 @@ app.config.from_object(Config)
 ' Checks wether a session has given this app permission to access the users 
 ' Instagram account, if so, the user can procede with the static site generator,
 ' If not, they are returned to the start page and cannot procede
-''''
+'''
 @app.route('/authorize')
 def authorize():
     try:
@@ -54,7 +53,7 @@ def authorize():
 '''
 ' Checks wether the user has been authorized, if so the function returns True, 
 ' if not the function returns false
-''''
+'''
 def isAuthorized():
     if session.get('auth_code') is not None:
         return True
@@ -230,7 +229,7 @@ def change_style():
 '''
 ' Saves the changes of a modified page.
 ' Used whenever a user leaves a page that they have modified'
-''''
+'''
 @app.route('/save_page', methods=['GET', 'POST'])
 def save_page():
     if isAuthorized() is False:
@@ -352,3 +351,8 @@ def index():
     session["navbar"] = "NavBar"
     session['site_style'] = "static/darkly.css"
     return render_template('welcome.html', site_style="static/darkly.css")
+
+
+
+if __name__ == "__main__":
+    app.run(ssl_context='adhoc')

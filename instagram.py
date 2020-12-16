@@ -14,7 +14,7 @@ from requests import get
 '''
 ' Takes in the info for the instagram app and returns the access token
 ' Used whenever the application needs a new access to access the Instagram API'
-''''
+'''
 def getAccessToken(client_id, client_secret, redirect_uri, auth_code):
     files = {
         'client_id': (None, client_id),
