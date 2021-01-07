@@ -18,7 +18,7 @@
         <main role="main" class="inner cover">
             <p class="lead"> Rapidly generate a site for your service based business using your already existing instagram content!</p>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="https://api.instagram.com/oauth/authorize?client_id=737101987128986&redirect_uri=https://gregstestapp.com/authorize&scope=user_profile,user_media&response_type=code" role="button">Try Now!</a>
+                <a class="btn btn-primary btn-lg" href="https://api.instagram.com/oauth/authorize?client_id=737101987128986&redirect_uri="+ {{ config['INSTAGRAM_REDIRECT_URI'] }}+"&scope=user_profile,user_media&response_type=code" role="button">Try Now!</a>
             </p>
         </main>
 
