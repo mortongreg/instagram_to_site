@@ -1,7 +1,6 @@
 # instagram_to_site
-instagram_to_site is an application that takes rapidly generates static sites that interacts with an Instagram account
-to easily upload images.
-Backend is written in Python and Flask and the frontend is written in HTML/JS/CSS
+A rapid static site generator that interacts with a users Instagram account and enables them to quickly walk them through creating a website using data from their instagram account. Backend is written in Python and Flask and the frontend is written in HTML/JS/CSS
+
 
 ## Setup
 
