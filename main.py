@@ -16,7 +16,7 @@ from pathlib import Path
 from config import Config
 
 
-
+from pprint import pprint
 import io
 import requests
 import os
@@ -44,6 +44,7 @@ def authorize():
         print("Auth code is None!")
 
     result = instagram.getAccessToken(app.config['INSTAGRAM_CLIENT_ID'], app.config['INSTAGRAM_CLIENT_SECRET'], app.config["INSTAGRAM_REDIRECT_URI"] , session['auth_code'])
+    pprint(result)
     session['access_token'] = result["access_token"]
     session['instagram_id'] = result["user_id"]
     session['images'] = getImages()

@@ -10,7 +10,7 @@
 import json
 import requests
 from requests import get
-
+from pprint import pprint
 '''
 ' Takes in the info for the instagram app and returns the access token
 ' Used whenever the application needs a new access to access the Instagram API'
@@ -35,7 +35,8 @@ def getInstagramImages(access_token):
         ('access_token', access_token),
     )
 
-    response = requests.get('https://graph.instagram.com/17841403710790032/media', params=params)
+    response = requests.get('https://graph.instagram.com/me/media', params=params)
+    pprint(response.text)   
     images = json.loads(response.text)
     image_data = list()
     for image in images['data']:
