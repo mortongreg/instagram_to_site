@@ -5,8 +5,11 @@ A rapid static site generator that interacts with a users Instagram account and 
 ## Setup
 
 Run the following commands to install:
+
 git clone https://github.com/mortongreg/mortongreg.github.io
+
 pip install -r requirements.txt
+
 export FLASK_APP=main.py
 
 You will also need to create an Instagram application and copy related Instagram application information to the config.py file like so:
