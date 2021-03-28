@@ -26,7 +26,9 @@ INSTAGRAM_CLIENT_SECRET = "sample_client_secret"
 INSTAGRAM_REDIRECT_URI = "https://sample_url.com/authorize"
 
 
-Once the above steps are finished you can run the application locally by the following command:
+**Once the above steps are finished you can run the application locally by the following command:
+**
+
 flask run
 
 
