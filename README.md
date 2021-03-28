@@ -4,7 +4,7 @@ A rapid static site generator that interacts with a users Instagram account and 
 
 ## Setup
 
-# Run the following commands to install:
+### Run the following commands to install:
 
 git clone https://github.com/mortongreg/mortongreg.github.io
 
@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 export FLASK_APP=main.py
 
-# You will also need to create an Instagram application and copy related Instagram application information to the config.py file like so:
+### You will also need to create an Instagram application and copy related Instagram application information to the config.py file like so:
 
 
 SECRET_KEY = 'SAMPLE_SECRET_KEY'
@@ -26,7 +26,7 @@ INSTAGRAM_CLIENT_SECRET = "sample_client_secret"
 INSTAGRAM_REDIRECT_URI = "https://sample_url.com/authorize"
 
 
-# Once the above steps are finished you can run the application locally by the following command:
+### Once the above steps are finished you can run the application locally by the following command:
 
 flask run
 
