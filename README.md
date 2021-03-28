@@ -10,10 +10,15 @@ pip install -r requirements.txt
 export FLASK_APP=main.py
 
 You will also need to create an Instagram application and copy related Instagram application information to the config.py file like so:
+
 SECRET_KEY = 'SAMPLE_SECRET_KEY'
+
 SITE_NAME = "https://sample_url.com"
+
 INSTAGRAM_CLIENT_ID = "sample_client_id"
+
 INSTAGRAM_CLIENT_SECRET = "sample_client_secret"
+
 INSTAGRAM_REDIRECT_URI = "https://sample_url.com/authorize"
 
 
